@@ -42,12 +42,27 @@ namespace Lab1
 
         public static bool operator ==(Cube a, Cube b)
         {
+            if (ReferenceEquals(a, b)) return true;
+            if (ReferenceEquals(a, null) || ReferenceEquals(b, null)) return false;
             return a.front == b.front && a.back == b.back && a.top == b.top && a.bottom == b.bottom && a.left == b.left && a.right == b.right;
         }
 
         public static bool operator !=(Cube a, Cube b)
         {
             return !(a == b);
+        }
+
+        public override bool Equals(object? obj) // Додаємо ? для допустимості null
+        {
+            if (obj == null || GetType() != obj.GetType()) return false;
+            var other = (Cube)obj;
+            return this == other;
+        }
+
+        public override int GetHashCode()
+        {
+            // Поєднуємо хеш-коди всіх полів куба для забезпечення унікального значення
+            return HashCode.Combine(front, back, top, bottom, left, right);
         }
     }
 
@@ -93,5 +108,4 @@ namespace Lab1
             File.WriteAllText(outputFilePath, cubesMatch ? "YES" : "NO");
         }
     }
-
 }
