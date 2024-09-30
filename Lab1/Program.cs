@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Lab1
 {
-    class Cube
+    public class Cube
     {
         public int front;
         public int back;
