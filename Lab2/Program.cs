@@ -10,7 +10,7 @@ namespace Lab2
         {
             // Отримання поточного каталогу і встановлення шляху до файлів
             string inputFilePath = Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "Lab2", "INPUT.txt");
-            string outputFilePath = Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "Lab2", "OUTPUT.TXT");
+            string outputFilePath = Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "Lab2", "OUTPUT.txt");
 
             // Читання вхідних даних з файлу
             var input = File.ReadAllLines(inputFilePath);

@@ -9,13 +9,13 @@ public class LargestShipTests
     private void RunTest(string inputData, string expectedOutput)
     {
         // Записуємо тестовий вхід в файл INPUT.TXT
-        File.WriteAllText("../../../../Lab2/INPUT.TXT", inputData);
+        File.WriteAllText("../../../../Lab2/INPUT.txt", inputData);
 
         // Викликаємо основну програму
         LargestShip.Main(new string[0]);
 
         // Читаємо результат з OUTPUT.TXT
-        string result = File.ReadAllText("../../../../Lab2/OUTPUT.TXT").Trim();
+        string result = File.ReadAllText("../../../../Lab2/OUTPUT.txt").Trim();
 
         // Порівнюємо результат з очікуваним значенням
         Assert.Equal(expectedOutput, result);
