@@ -5,6 +5,7 @@ using Lab2;
 
 public class LargestShipTests
 {
+    int testnum = 0;
     // Функція для запуску методу Main з тестовими файлами
     private void RunTest(string inputData, string expectedOutput)
     {
@@ -19,11 +20,13 @@ public class LargestShipTests
 
         // Порівнюємо результат з очікуваним значенням
         Assert.Equal(expectedOutput, result);
+        Console.WriteLine($"Test number {testnum} \nExpexted result: {expectedOutput} \nActual result: {result}");
     }
 
     [Fact]
     public void Test_SimpleScenario()
     {
+        testnum = 2;
         string inputData = "8 7 3\n1 1 2 2\n3 5 3 7\n4 2 4 3";
         string expectedOutput = "21";
         RunTest(inputData, expectedOutput);
@@ -32,6 +35,7 @@ public class LargestShipTests
     [Fact]
     public void Test_OneShip()
     {
+        testnum = 4;
         string inputData = "5 5 1\n1 1 1 1";
         string expectedOutput = "15";  // Найбільший можливий корабель займає решту клітин
         RunTest(inputData, expectedOutput);
@@ -40,6 +44,7 @@ public class LargestShipTests
     [Fact]
     public void Test_FullBlock()
     {
+        testnum = 1;
         string inputData = "3 3 1\n1 1 3 3";
         string expectedOutput = "0";  // Всі клітинки зайняті, тому новий корабель не можна розмістити
         RunTest(inputData, expectedOutput);
@@ -48,6 +53,7 @@ public class LargestShipTests
     [Fact]
     public void Test_EmptyField()
     {
+        testnum = 3;
         string inputData = "4 4 0";
         string expectedOutput = "16";  // Немає кораблів, максимальний можливий корабель — 16 клітинок
         RunTest(inputData, expectedOutput);
@@ -56,6 +62,7 @@ public class LargestShipTests
     [Fact]
     public void Test_MultipleSmallShips()
     {
+        testnum = 5;
         string inputData = "6 6 2\n1 1 2 2\n5 5 6 6";
         string expectedOutput = "9";  // Вільний простір у центрі дозволяє розмістити корабель розміром 12 клітинок
         RunTest(inputData, expectedOutput);
