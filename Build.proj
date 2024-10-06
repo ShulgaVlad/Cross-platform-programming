@@ -8,17 +8,17 @@
 
 	<!-- Target for building the project -->
 	<Target Name="Build">
-		<Exec Command="dotnet build $(SolutionPath)" />
+		<Exec Command="dotnet build &quot;$(SolutionPath)&quot;" />
 	</Target>
 
 	<!-- Target for running the project -->
 	<Target Name="Run">
-		<Exec Command="dotnet run --project $(SolutionPath)" />
+		<Exec Command="dotnet run --project &quot;$(SolutionPath)&quot;" />
 	</Target>
 
 	<!-- Target for testing the project -->
 	<Target Name="Test">
-		<Exec Command="dotnet test $(SolutionTestPath)" />
+		<Exec Command="dotnet test &quot;$(SolutionTestPath)&quot;" />
 	</Target>
 
 </Project>
