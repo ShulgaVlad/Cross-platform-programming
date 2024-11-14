@@ -27,8 +27,8 @@ namespace Lab1_Test
         {
             var cube = new Cube { front = 1, back = 2, top = 3, bottom = 4, left = 5, right = 6 };
             var rotated = cube.RotateToTop();
-            Assert.Equal(4, rotated.front); // фронт повинен стати нижньою гранню
-            Assert.Equal(3, rotated.back);  // зад повинен стати верхньою гранню
+            Assert.Equal(4, rotated.front); 
+            Assert.Equal(3, rotated.back);
         }
 
         [Fact]
@@ -36,8 +36,8 @@ namespace Lab1_Test
         {
             var cube = new Cube { front = 1, back = 2, top = 3, bottom = 4, left = 5, right = 6 };
             var rotated = cube.RotateRight();
-            Assert.Equal(5, rotated.front); // лівий стає переднім
-            Assert.Equal(6, rotated.back);  // правий стає заднім
+            Assert.Equal(5, rotated.front); 
+            Assert.Equal(6, rotated.back);  
         }
 
         [Fact]
@@ -45,8 +45,8 @@ namespace Lab1_Test
         {
             var cube = new Cube { front = 1, back = 2, top = 3, bottom = 4, left = 5, right = 6 };
             var rotated = cube.RotateCW();
-            Assert.Equal(5, rotated.top);   // лівий стає верхнім
-            Assert.Equal(6, rotated.bottom);// правий стає нижнім
+            Assert.Equal(5, rotated.top);  
+            Assert.Equal(6, rotated.bottom);
         }
 
         [Fact]
@@ -55,16 +55,13 @@ namespace Lab1_Test
             var cube1 = new Cube { front = 1, back = 2, top = 3, bottom = 4, left = 5, right = 6 };
             var cube2 = new Cube { front = 5, back = 6, top = 3, bottom = 4, left = 2, right = 1 };
 
-            // Перевірка, що куби спочатку не рівні
             Assert.False(cube1 == cube2);
 
-            // Повертаємо куб праворуч
             cube1 = cube1.RotateRight();
-            // Тепер передній і задній повинні бути лівою і правою гранями відповідно
+ 
             Assert.Equal(5, cube1.front);
             Assert.Equal(6, cube1.back);
-
-            // Тепер куби повинні бути рівні
+        
             Assert.True(cube1 == cube2);
         }
 
@@ -76,16 +73,15 @@ namespace Lab1_Test
 
             bool cubesMatch = false;
 
-            // Пробуємо всі можливі оберти
             for (int i = 0; i < 4; i++)
             {
-                cube1 = cube1.RotateToTop(); // Поворот до верхньої грані
+                cube1 = cube1.RotateToTop();
                 for (int j = 0; j < 4; j++)
                 {
-                    cube1 = cube1.RotateRight(); // Поворот праворуч
+                    cube1 = cube1.RotateRight();
                     for (int k = 0; k < 4; k++)
                     {
-                        cube1 = cube1.RotateCW(); // Поворот за годинниковою стрілкою
+                        cube1 = cube1.RotateCW();
                         if (cube1 == cube2)
                         {
                             cubesMatch = true;
@@ -97,7 +93,7 @@ namespace Lab1_Test
                 if (cubesMatch) break;
             }
 
-            Assert.True(cubesMatch); // Якщо знайдеться рівність після обертів, тест пройдено
+            Assert.True(cubesMatch);
         }
     }
 }
